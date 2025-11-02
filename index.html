@@ -1,152 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>RWA Contracts API</title>
+    <head>
+        <meta charset="UTF-8" />
+        <title>RWA Contracts API</title>
 
-    <!-- Docsify 配置 -->
-    <script>
-        window.$docsify = {
-            name: 'RWA Contracts',
-            homepage: 'README.md',
-            loadSidebar: 'sidebar.md',
-            subMaxLevel: 2,
-            repo: 'https://gitee.com/alaboshu/contract-docs.git',
-            auto2top: true,
-            search: {
-                maxAge: 86400000,
-                paths: 'auto',
-                placeholder: '搜索...',
-                noData: '未找到匹配结果',
-                depth: 4
-            }
-        };
-    </script>
+        <!-- Docsify 配置 -->
+        <script>
+            window.$docsify = {
+                name: 'RWA Contracts',
+                homepage: 'README.md',
+                loadSidebar: 'sidebar.md',
+                subMaxLevel: 2,
+                repo: 'https://gitee.com/alaboshu/contract-docs.git',
+                auto2top: true,
+                search: {
+                    maxAge: 86400000,
+                    paths: 'auto',
+                    placeholder: '搜索...',
+                    noData: '未找到匹配结果',
+                    depth: 4,
+                },
+            };
+        </script>
 
-    <!-- Simple Dark 主题 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" />
+        <!-- docsify-themeable Simple Dark 主题 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" />
 
-    <!-- 自定义样式 -->
-    <style>
-        /* 内容区最大宽度 1500px，居中显示 */
-        .markdown-section {
-            max-width: 1500px;
-            width: 90%;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-        }
-
-        /* 字体与行高 */
-        #app {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-
-        /* 左侧导航美化 */
-        .sidebar a {
-            font-weight: 500;
-        }
-
-        /* 搜索结果样式 */
-        .docsify-search-result {
-            background-color: #1f2937;
-            color: #f9fafb;
-        }
-
-        /* 代码块样式 */
-        pre, code {
-            background-color: #111827;
-            color: #f9fafb;
-        }
-
-        /* 复制按钮样式 */
-        .docsify-copy-code {
-            background-color: #3b82f6;
-            color: #fff;
-            border-radius: 3px;
-            padding: 2px 6px;
-            font-size: 12px;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-        .docsify-copy-code:hover {
-            opacity: 1;
-        }
-
-        /* 代码块相对定位 */
-        pre { position: relative; }
-
-        /* 移动端优化 */
-        @media (max-width: 768px) {
-            .sidebar {
-                position: fixed;
-                left: -250px;
-                top: 0;
-                width: 250px;
-                height: 100%;
-                background-color: #111827;
-                transition: left 0.3s;
-                z-index: 1000;
-            }
-            .sidebar.show { left: 0; }
-
+        <!-- 自定义样式 -->
+        <style>
+            /* 内容区最大宽度 1500px，居中显示 */
             .markdown-section {
-                width: 95%;
-                padding: 1rem;
+                max-width: 1500px;
+                width: 90%;
+                margin: 0 auto;
+                padding: 1rem 2rem;
             }
 
-            #menu-toggle {
-                position: fixed;
-                top: 10px;
-                left: 10px;
-                z-index: 1100;
-                cursor: pointer;
+            /* 可选：字体与行高 */
+            #app {
+                font-family: 'Inter', sans-serif;
+                line-height: 1.6;
+            }
+
+            /* 左侧导航美化 */
+            .sidebar a {
+                font-weight: 500;
+            }
+
+            /* 搜索结果样式 */
+            .docsify-search-result {
+                background-color: #1f2937;
+                color: #f9fafb;
+            }
+
+            /* 代码块样式 */
+            pre,
+            code {
+                background-color: #111827;
+                color: #f9fafb;
+            }
+
+            /* 复制按钮样式 */
+            .docsify-copy-code {
                 background-color: #3b82f6;
                 color: #fff;
-                padding: 5px 10px;
-                border-radius: 4px;
+                border-radius: 3px;
+                padding: 2px 6px;
+                font-size: 12px;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                cursor: pointer;
+                opacity: 0.8;
+                transition: opacity 0.2s;
             }
-        }
-
-        /* 打印/导出 PDF 优化 */
-        @media print {
-            .sidebar { display: none !important; }
-            .markdown-section {
-                max-width: 100% !important;
-                width: 100% !important;
-                padding: 0 !important;
+            .docsify-copy-code:hover {
+                opacity: 1;
             }
-            .docsify-copy-code { display: none !important; }
-            body { color: #000 !important; background-color: #fff !important; }
-            pre, code { background-color: #f5f5f5 !important; color: #000 !important; }
-        }
-    </style>
-</head>
-<body>
-    <!-- 移动端菜单按钮 -->
-    <div id="menu-toggle">菜单</div>
 
-    <div id="app"></div>
+            /* 代码块相对定位，让复制按钮显示在右上角 */
+            pre {
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
 
-    <!-- Docsify 核心 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+        <!-- Docsify 核心 -->
+        <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 
-    <!-- 代码块复制插件 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-
-    <!-- 移动端侧边栏控制 -->
-    <script>
-        const toggleBtn = document.getElementById('menu-toggle');
-        const sidebar = document.querySelector('.sidebar');
-
-        toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('show');
-        });
-    </script>
-</body>
+        <!-- 代码块复制插件 -->
+        <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    </body>
 </html>
