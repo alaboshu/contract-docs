@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <title>RWA Contracts API</title>
+
+        <!-- Docsify 配置 -->
         <script>
             window.$docsify = {
                 name: 'RWA Contracts',
@@ -12,21 +14,43 @@
                 repo: 'https://gitee.com/alaboshu/contract-docs.git',
                 auto2top: true,
                 search: {
-                    maxAge: 86400000, // 过期时间，单位毫秒，1天
-                    paths: 'auto', // 自动索引所有 Markdown 文件
+                    maxAge: 86400000,
+                    paths: 'auto',
                     placeholder: '搜索...',
                     noData: '未找到匹配结果',
-                    depth: 4, // 搜索标题深度
+                    depth: 4,
                 },
             };
         </script>
-        <!-- Theme: Simple Dark -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" />
+
+        <!-- 默认主题 -->
+        <link id="theme-link" rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css" />
+
+        <!-- 自定义样式 -->
+        <link rel="stylesheet" href="custom.css" />
     </head>
     <body>
+        <div id="theme-switcher" style="position: fixed; top: 10px; right: 10px; z-index: 1000">
+            <button onclick="switchTheme()">切换主题</button>
+        </div>
+
         <div id="app"></div>
+
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-        <!-- ✅ 搜索插件 -->
+
+        <!-- 切换主题脚本 -->
+        <script>
+            const themes = [
+                '//cdn.jsdelivr.net/npm/docsify/themes/dark.css', // 暗黑
+                '//cdn.jsdelivr.net/npm/docsify/themes/material.css', // 浅色/专业
+            ];
+            let current = 0;
+
+            function switchTheme() {
+                current = (current + 1) % themes.length;
+                document.getElementById('theme-link').setAttribute('href', themes[current]);
+            }
+        </script>
     </body>
 </html>
