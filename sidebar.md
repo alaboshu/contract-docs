@@ -1,5 +1,3 @@
-**目录**
-
 - AMM
   - [IFeeManager](AMM/IFeeManager.md)
   - [ILiquidityReward](AMM/ILiquidityReward.md)
