@@ -1,40 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>RWA Contracts API</title>
+<head>
+  <meta charset="UTF-8">
+  <title>RWA Contracts API</title>
 
-    <!-- Docsify 配置 -->
-    <script>
-      window.$docsify = {
-        name: 'RWA Contracts',
-        homepage: 'README.md',
-        loadSidebar: 'sidebar.md',
-        subMaxLevel: 2,
-        repo: 'https://gitee.com/alaboshu/contract-docs.git',
-        auto2top: true,
-        search: {
-          maxAge: 86400000,
-          paths: 'auto',
-          placeholder: '搜索...',
-          noData: '未找到匹配结果',
-          depth: 4,
-        },
-        loadNavbar: false,
-      };
-    </script>
+  <!-- Docsify 配置 -->
+  <script>
+    window.$docsify = {
+      name: 'RWA Contracts',
+      homepage: 'README.md',
+      loadSidebar: 'sidebar.md',
+      subMaxLevel: 2,
+      repo: 'https://gitee.com/alaboshu/contract-docs.git',
+      auto2top: true,
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索...',
+        noData: '未找到匹配结果',
+        depth: 4
+      }
+    };
+  </script>
 
-    <!-- 官方暗黑主题 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css" />
+  <!-- docsify-themeable Simple Dark 主题 -->
+  <link id="theme-link" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
 
-    <!-- 自定义样式 -->
-    <link rel="stylesheet" href="custom.css" />
-  </head>
-  <body>
-    <div id="app"></div>
+  <!-- 自定义样式 -->
+  <link rel="stylesheet" href="custom.css">
+</head>
+<body>
 
-    <!-- Docsify 核心脚本 -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  </body>
+<!-- 可选：主题下拉切换 -->
+<div id="theme-switcher" style="position: fixed; top: 10px; right: 10px; z-index:1000;">
+  <label for="theme-select" style="color:#f9fafb;font-weight:600;">主题：</label>
+  <select id="theme-select" onchange="switchTheme()">
+    <option value="simple-dark">Simple Dark</option>
+    <option value="simple-light">Simple Light</option>
+  </select>
+</div>
+
+<div id="app"></div>
+
+<!-- Docsify 核心 -->
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+<script>
+  const themeMap = {
+    "simple-dark": "https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css",
+    "simple-light": "https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-light.css"
+  };
+
+  function switchTheme() {
+    const select = document.getElementById('theme-select');
+    const theme = select.value;
+    document.getElementById('theme-link').setAttribute('href', themeMap[theme]);
+    localStorage.setItem('docsify-theme', theme);
+  }
+
+  // 页面加载时自动应用用户上次选择的主题
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('docsify-theme');
+    if (saved && themeMap[saved]) {
+      document.getElementById('theme-link').setAttribute('href', themeMap[saved]);
+      document.getElementById('theme-select').value = saved;
+    }
+  });
+</script>
+
+</body>
 </html>
