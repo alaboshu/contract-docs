@@ -6,8 +6,9 @@
         <script>
             window.$docsify = {
                 name: 'RWA Contracts',
-                loadSidebar: true, // 加载 sidebar.md3
                 homepage: 'README.md',
+                loadSidebar: 'sidebar.md', // ✅ 改成这个
+                subMaxLevel: 2,
                 repo: 'https://gitee.com/alaboshu/contract-docs.git',
                 auto2top: true,
             };
