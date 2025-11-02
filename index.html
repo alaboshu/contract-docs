@@ -1,7 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>RWA Contracts API</title>
 
     <!-- Docsify 配置 -->
@@ -30,19 +30,19 @@
     <style>
         /* 内容区最大宽度 1500px，居中显示 */
         .markdown-section {
-            max-width: 1500px;   /* 最大宽度 */
-            width: 90%;          /* 默认占屏幕 90% */
-            margin: 0 auto;      /* 居中 */
-            padding: 1rem 2rem;  /* 上下左右间距 */
+            max-width: 1500px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 1rem 2rem;
         }
 
-        /* 可选：调整字体和行高 */
+        /* 可选：字体与行高 */
         #app {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
         }
 
-        /* 左侧导航链接颜色 */
+        /* 左侧导航美化 */
         .sidebar a {
             font-weight: 500;
         }
@@ -58,6 +58,29 @@
             background-color: #111827;
             color: #f9fafb;
         }
+
+        /* 复制按钮样式 */
+        .docsify-copy-code {
+            background-color: #3b82f6;
+            color: #fff;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: 12px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .docsify-copy-code:hover {
+            opacity: 1;
+        }
+
+        /* 代码块相对定位，让复制按钮显示在右上角 */
+        pre {
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -66,5 +89,8 @@
     <!-- Docsify 核心 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+    <!-- 代码块复制插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 </html>
