@@ -3,8 +3,6 @@
     <head>
         <meta charset="UTF-8" />
         <title>RWA Contracts API</title>
-
-        <!-- Docsify 配置 -->
         <script>
             window.$docsify = {
                 name: 'RWA Contracts',
@@ -14,72 +12,20 @@
                 repo: 'https://gitee.com/alaboshu/contract-docs.git',
                 auto2top: true,
                 search: {
-                    maxAge: 86400000,
-                    paths: 'auto',
+                    maxAge: 86400000, // 过期时间，单位毫秒，1天
+                    paths: 'auto', // 自动索引所有 Markdown 文件
                     placeholder: '搜索...',
                     noData: '未找到匹配结果',
-                    depth: 4,
+                    depth: 4, // 搜索标题深度
                 },
             };
         </script>
-
-        <!-- 默认主题 material.css -->
-        <link id="theme-link" rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/material.css" />
-
-        <!-- 自定义样式 -->
-        <link rel="stylesheet" href="custom.css" />
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/material.css" />
     </head>
     <body>
-        <div id="theme-switcher" style="position: fixed; top: 10px; right: 10px; z-index: 1000">
-            <label for="theme-select" style="color: #333; font-weight: 600">主题：</label>
-            <select id="theme-select" onchange="switchTheme()">
-                <option value="material.css">Material</option>
-                <option value="vue.css">Vue</option>
-                <option value="dark.css">Dark</option>
-                <option value="cobalt.css">Cobalt</option>
-                <option value="pure.css">Pure</option>
-                <option value="flat.css">Flat</option>
-                <option value="default.css">Default</option>
-                <option value="simple.css">Simple</option>
-                <option value="readable.css">Readable</option>
-                <option value="dark.css">Dark</option>
-            </select>
-        </div>
-
         <div id="app"></div>
-
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
-        <script>
-            const themeMap = {
-                'material.css': '//cdn.jsdelivr.net/npm/docsify/themes/material.css',
-                'vue.css': '//cdn.jsdelivr.net/npm/docsify/themes/vue.css',
-                'dark.css': '//cdn.jsdelivr.net/npm/docsify/themes/dark.css',
-                'cobalt.css': '//cdn.jsdelivr.net/npm/docsify/themes/cobalt.css',
-                'pure.css': '//cdn.jsdelivr.net/npm/docsify/themes/pure.css',
-                'flat.css': '//cdn.jsdelivr.net/npm/docsify/themes/flat.css',
-                'default.css': '//cdn.jsdelivr.net/npm/docsify/themes/default.css',
-                'simple.css': '//cdn.jsdelivr.net/npm/docsify/themes/simple.css',
-                'readable.css': '//cdn.jsdelivr.net/npm/docsify/themes/readable.css',
-            };
-
-            function switchTheme() {
-                const select = document.getElementById('theme-select');
-                const theme = select.value;
-                document.getElementById('theme-link').setAttribute('href', themeMap[theme]);
-                // 保存到 localStorage，下次打开自动加载
-                localStorage.setItem('docsify-theme', theme);
-            }
-
-            // 页面加载时自动应用用户上次选择的主题
-            window.addEventListener('DOMContentLoaded', () => {
-                const saved = localStorage.getItem('docsify-theme');
-                if (saved && themeMap[saved]) {
-                    document.getElementById('theme-link').setAttribute('href', themeMap[saved]);
-                    document.getElementById('theme-select').value = saved;
-                }
-            });
-        </script>
+        <!-- ✅ 搜索插件 -->
     </body>
 </html>
