@@ -6,12 +6,18 @@
         <script>
             window.$docsify = {
                 name: 'RWA Contracts',
-                homepage: 'README.md', // ✅ 保证在根目录
-                loadSidebar: 'sidebar.md', // ✅ 不用下划线
+                homepage: 'README.md',
+                loadSidebar: 'sidebar.md',
                 subMaxLevel: 2,
-                repo: 'https://github.com/alaboshu/contract-docs',
+                repo: 'https://gitee.com/alaboshu/contract-docs.git',
                 auto2top: true,
-                basePath: './', // ✅ 加上这句，确保路径在根目录解析
+                search: {
+                    maxAge: 86400000, // 过期时间，单位毫秒，1天
+                    paths: 'auto', // 自动索引所有 Markdown 文件
+                    placeholder: '搜索...',
+                    noData: '未找到匹配结果',
+                    depth: 4, // 搜索标题深度
+                },
             };
         </script>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css" />
@@ -19,5 +25,7 @@
     <body>
         <div id="app"></div>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+        <!-- ✅ 搜索插件 -->
     </body>
 </html>
