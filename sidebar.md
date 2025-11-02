@@ -1,4 +1,5 @@
-# 目录
+**目录**
+
 - AMM
   - [IFeeManager](AMM/IFeeManager.md)
   - [ILiquidityReward](AMM/ILiquidityReward.md)
@@ -51,6 +52,7 @@
   - [IRsyMonitor](rsy/IRsyMonitor.md)
   - [IRsyToken](rsy/IRsyToken.md)
   - [IRsyWithdraw](rsy/IRsyWithdraw.md)
+- [sidebar](sidebar.md)
 - swap
   - [IDCAPlan](swap/IDCAPlan.md)
   - [ILimitOrderBook](swap/ILimitOrderBook.md)
