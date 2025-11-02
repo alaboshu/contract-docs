@@ -57,3 +57,4 @@
   - [IDataAttestation](zkp/IDataAttestation.md)
   - [IDataProof](zkp/IDataProof.md)
   - [IVerifier](zkp/IVerifier.md)
+- [_sidebar](_sidebar.md)
