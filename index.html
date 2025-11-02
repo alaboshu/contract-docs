@@ -1,31 +1,40 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>RWA Contracts API</title>
-        <script>
-            window.$docsify = {
-                name: 'RWA Contracts',
-                homepage: 'README.md',
-                loadSidebar: 'sidebar.md',
-                subMaxLevel: 2,
-                repo: 'https://gitee.com/alaboshu/contract-docs.git',
-                auto2top: true,
-                search: {
-                    maxAge: 86400000, // 过期时间，单位毫秒，1天
-                    paths: 'auto', // 自动索引所有 Markdown 文件
-                    placeholder: '搜索...',
-                    noData: '未找到匹配结果',
-                    depth: 4, // 搜索标题深度
-                },
-            };
-        </script>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/material.css" />
-    </head>
-    <body>
-        <div id="app"></div>
-        <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-        <!-- ✅ 搜索插件 -->
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>RWA Contracts API</title>
+
+    <!-- Docsify 配置 -->
+    <script>
+      window.$docsify = {
+        name: 'RWA Contracts',
+        homepage: 'README.md',
+        loadSidebar: 'sidebar.md',
+        subMaxLevel: 2,
+        repo: 'https://gitee.com/alaboshu/contract-docs.git',
+        auto2top: true,
+        search: {
+          maxAge: 86400000,
+          paths: 'auto',
+          placeholder: '搜索...',
+          noData: '未找到匹配结果',
+          depth: 4,
+        },
+        loadNavbar: false,
+      };
+    </script>
+
+    <!-- 官方暗黑主题 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css" />
+
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="custom.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- Docsify 核心脚本 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  </body>
 </html>
