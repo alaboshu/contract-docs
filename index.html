@@ -6,11 +6,12 @@
         <script>
             window.$docsify = {
                 name: 'RWA Contracts',
-                homepage: 'README.md',
-                loadSidebar: 'sidebar.md', // ✅ 改成这个
+                homepage: 'README.md', // ✅ 保证在根目录
+                loadSidebar: 'sidebar.md', // ✅ 不用下划线
                 subMaxLevel: 2,
-                repo: 'https://gitee.com/alaboshu/contract-docs.git',
+                repo: 'https://github.com/alaboshu/contract-docs',
                 auto2top: true,
+                basePath: './', // ✅ 加上这句，确保路径在根目录解析
             };
         </script>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css" />
